@@ -1,0 +1,37 @@
+GUIDA ALL'USO - ETL Project
+Questa guida ti accompagna passo dopo passo nell'utilizzo del progetto ETL per trasformare e caricare dati di vendita in un database MySQL. 
+Il progetto utilizza una superclasse ModelloBase che fornisce metodi generici per l'analisi dei dataset.
+
+1. Prepara l’ambiente:
+Assicurati di avere Python e MySQL installati sul tuo sistema.
+Installa le librerie Python necessarie eseguendo da terminale:
+pip install -r requirements.txt
+
+2. Configura il database:
+CREATE DATABASE animal_db;
+Nel codice Python, assicurati che la connessione al database sia corretta.
+
+3.Prepara il dataset:
+Salva il file CSV nella directory corretta (es. data/dataset.csv).
+
+4. Esegui il processo ETL:
+Nel tuo script Python principale, esegui:
+
+from dataset_cleaner import DatasetCleaner, creazione_tabella, esporta_dati_db
+
+# Caricamento e pulizia
+modello = DatasetCleaner("data/dataset.csv")
+
+# Analisi facoltativa
+modello.analisi_generali(modello.dataframe_sistemato)
+
+# Creazione tabella se non esiste
+creazione_tabella()
+
+# Caricamento dei dati
+esporta_dati_db(modello.dataframe_sistemato)
+
+5. Controlla il risultato: 
+I dati verranno inseriti nella tabella cafe_sales all’interno del database cafe.
+Puoi verificare con questa query SQL:
+SELECT * FROM animal LIMIT 10;
