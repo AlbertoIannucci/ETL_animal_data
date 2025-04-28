@@ -133,12 +133,9 @@ def load(df):
         connection = getconnection()
         try:
             with connection.cursor() as cursor:
-                for index, row in df.iterrows():
-                    sql = ("INSERT INTO animal(animal_type, country, weight_kg, body_length_cm, gender, latitude, "
-                           "longitude, observation_date, data_compiled_by) "
-                           "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)")
-
-                    cursor.execute(sql, (
+                # Prepara una lista di tuple con i dati da inserire
+                values = [
+                    (
                         row["animal_type"],
                         row["country"],
                         row["weight_kg"],
@@ -148,7 +145,19 @@ def load(df):
                         row["longitude"],
                         row["observation_date"],
                         row["data_compiled_by"]
-                    ))
+                    )
+                    for _, row in df.iterrows()
+                ]
+                
+                # SQL per l'inserimento dei dati
+                sql = """
+                INSERT INTO animal (animal_type, country, weight_kg, body_length_cm, gender, latitude, 
+                                    longitude, observation_date, data_compiled_by) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """
+                
+                # Esegui l'inserimento in batch con executemany
+                cursor.executemany(sql, values)
                 connection.commit()
                 print("Dati caricati correttamente")
         finally:
@@ -156,7 +165,6 @@ def load(df):
     except Exception as e:
         print(e)
         return None
-
 
 
 modello = DatasetCleaner("../Dataset/dataset.csv")
