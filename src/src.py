@@ -133,8 +133,8 @@ def load(df):
         connection = getconnection()
         try:
             with connection.cursor() as cursor:
-                # Prepara una lista di tuple con i dati da inserire
-                values = [
+                # Preparo una lista di tuple con i dati da inserire
+                valori = [
                     (
                         row["animal_type"],
                         row["country"],
@@ -156,8 +156,8 @@ def load(df):
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """
                 
-                # Esegui l'inserimento in batch con executemany
-                cursor.executemany(sql, values)
+                # Eseguo l'inserimento in batch con executemany
+                cursor.executemany(sql, valori)
                 connection.commit()
                 print("Dati caricati correttamente")
         finally:
