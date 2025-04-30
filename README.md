@@ -7,8 +7,8 @@ Uno script Python completo per eseguire un processo ETL (Extract - Transform - L
 - **Caricamento e pulizia dei dati da file CSV**
 - **Rilevamento e sostituzione di valori anomali** (`"not determined"`)
 - **Gestione dei valori mancanti**:
-  - Per le **variabili categoriali**: drop
-  - Per le **variabili quantitative**: imputazione tramite **mediana**
+  - Per le **variabili categoriali**: sostituzione tramite **moda**
+  - Per le **variabili quantitative**: imputazione tramite **mediana** calcolato su un raggruppamento
 - **Conversione tipi di dati**
 - **Gestione outliers**: sostituzione con limite inferiore o limite superiore
 - **Gestione valori duplicati**: drop
