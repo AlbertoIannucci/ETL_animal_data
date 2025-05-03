@@ -29,7 +29,7 @@ modello.analisi_generali(modello.dataframe_sistemato)
 creazione_tabella()
 
 # Caricamento dei dati
-esporta_dati_db(modello.dataframe_sistemato)
+load(modello.dataframe_sistemato)
 
 5. Controlla il risultato: 
 I dati verranno inseriti nella tabella cafe_sales all’interno del database cafe.
