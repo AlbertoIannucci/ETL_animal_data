@@ -1,6 +1,6 @@
 # ETL_animal_data 📦🔄📊
 
-Uno script Python completo per eseguire un processo ETL (Extract - Transform - Load) su dati di vendita, partendo da un file CSV grezzo fino al caricamento dei dati puliti in un database MySQL.
+Uno script Python completo per eseguire un processo ETL (Extract - Transform - Load) su dati di animali, partendo da un file CSV grezzo fino al caricamento dei dati puliti in un database MySQL.
 
 ## ⚙️ Funzionalità
 
