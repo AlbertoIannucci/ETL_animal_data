@@ -1,5 +1,5 @@
 GUIDA ALL'USO - ETL Project
-Questa guida ti accompagna passo dopo passo nell'utilizzo del progetto ETL per trasformare e caricare dati di vendita in un database MySQL. 
+Questa guida ti accompagna passo dopo passo nell'utilizzo del progetto ETL per trasformare e caricare dati in un database MySQL. 
 Il progetto utilizza una superclasse ModelloBase che fornisce metodi generici per l'analisi dei dataset.
 
 1. Prepara l’ambiente:
